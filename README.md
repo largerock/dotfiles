@@ -12,8 +12,6 @@ sudo -E ~/.george_terminal/scripts/bootstrap.sh && \
 ~/.george_terminal/scripts/test
 ```
 
-
-
 ### MacOS
 
 `cd ~/ && git clone https://github.com/largerock/dotfiles.git && cd dotfiles && ./scripts/bootstrap-darwin.sh`
