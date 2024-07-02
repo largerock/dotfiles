@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+##############################################################################
+# HomeBrew
+##############################################################################
+
+# Install Homebrew if not found
+if [[ -z $(command -v brew) ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Make sure we’re using the latest Homebrew
+brew update
+brew upgrade
+
+# Install GNU core utilities (those that come with OS X are outdated)
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install coreutils
+# Install some other useful utilities like `sponge`.
+brew install moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew install gnu-sed
+
+brew install wget
+brew install grep
+brew install openssh
+
+brew install mono
+brew install nvm
+
+brew install ack
+brew install blueutil
+brew install certbot
+brew install composer
+brew install dos2unix
+brew install dnsmasq
+brew install ffmpeg
+brew install git
+brew install imagemagick
+brew install mas
+brew install nginx
+brew install tree
+brew install wp-cli
+brew install cmake 
+brew install starship
+
+# browsers
+brew install --cask firefox
+brew install --cask google-chrome
+
+# devtools
+mas install         1295203466     # Microsoft Remote Desktop
+brew install --cask microsoft-azure-storage-explorer
+brew install --cask visual-studio-code
+brew install --cask postman
+brew install --cask iterm2
+brew install --cast obsidian
+
+# other
+mas install         406056744      # Evernote
+brew install --cask gpg-suite
+mas install         409183694      # Keynote
+mas install         409203825      # Numbers
+mas install         409201541      # Pages
+brew install --cask parallels
+mas install         803453959      # Slack
+
+# fonts
+brew install --cask font-agave-nerd-font
+
+# REMOVE bundled apps
+mas uninstall 408981434    # iMovie
+mas uninstall 682658836    # GarageBand
+
+# Remove outdated versions from the cellar
+brew cleanup
+
+# ZSH plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 
+
+###############################################################################
+# NVM (Node Version Manager - https://github.com/creationix/nvm)              #
+###############################################################################
+# Install latest version of nodejs
+if [[ -n $(command -v nvm) ]]; then
+  nvm install stable
+fi
