@@ -1,4 +1,3 @@
-Write-Output "loading functions"
 # Basic commands
 function which($name) { Get-Command $name -ErrorAction SilentlyContinue | Select-Object Definition }
 function touch($file) { "" | Out-File $file -Encoding ASCII }
@@ -20,6 +19,15 @@ function sudo() {
         start-process $args[0] -ArgumentList $args[1..$args.Length] -verb "runAs"
     }
 }
+
+function Verify-Elevated {
+    # Get the ID and security principal of the current user account
+    $myIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+    $myPrincipal=new-object System.Security.Principal.WindowsPrincipal($myIdentity)
+    # Check to see if we are currently running "as Administrator"
+    return $myPrincipal.IsInRole([System.Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
 
 function Reload-Powershell {
     $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";

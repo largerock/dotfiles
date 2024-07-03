@@ -1,4 +1,3 @@
-Write-Output "Installing visual stuido"
 # Configure Visual Studio
 if ((Test-Path "hklm:\SOFTWARE\Microsoft\VisualStudio\SxS\VS7") -or (Test-Path "hklm:\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\SxS\VS7")) {
     # Add a folder to $env:Path
