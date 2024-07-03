@@ -35,3 +35,6 @@ cd ~\ && git clone https://github.com/largerock/dotfiles.git && cd dotfiles && .
 # post install deps (will run deps.ps1 inside of the $profile dir)
 & (Join-Path (Split-Path -Parent $PROFILE) "deps.ps1")
 ```
+
+adding windows keys:
+C:/ProgramData/ssh/
