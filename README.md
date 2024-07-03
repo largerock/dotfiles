@@ -24,6 +24,7 @@ Install the Agave Nerd Font from https://www.nerdfonts.com/font-downloads. Set`A
 postinst `.~/.deps`
 
 ## Windows
+0. install powershell 7: `winget install Microsoft.PowerShell`
 1. Open powershell as admin
 2. Run: `Set-ExecutionPolicy RemoteSigned` to allow the scripts to run.
 3. Run: 
