@@ -13,6 +13,8 @@ if (!(Verify-Elevated)) {
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow
 New-NetFirewallRule -DisplayName "Allow ICMPv6-In" -Protocol ICMPv6 -IcmpType 8 -Direction Inbound -Action Allow
 
+Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber 
+
 # enable ssh server and client
 # https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
 
@@ -36,7 +38,7 @@ winget source update
 winget install Git.Git                                  --silent --accept-package-agreements --accept-source-agreements --override "/VerySilent /NoRestart /o:PathOption=CmdTools /Components=""icons,assoc,assoc_sh,gitlfs"""
 winget install Microsoft.PowerToys                      --silent --accept-package-agreements --accept-source-agreements
 winget install Microsoft.WindowsTerminal                --silent --accept-package-agreements --accept-source-agreements
-winget install Microsoft.VisualStudioCode
+winget install Microsoft.VisualStudioCode               --silent --accept-package-agreements --accept-source-agreements
 winget install Starship.Starship                        --silent --accept-package-agreements --accept-source-agreements
 winget install OpenJS.NodeJS                            --silent --accept-package-agreements --accept-source-agreements
 winget install Microsoft.AzureCLI                       --silent --accept-package-agreements --accept-source-agreements

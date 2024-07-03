@@ -1,4 +1,8 @@
 Write-Output "Bootstrapping Windows"
+
+# get the most recent changes from master
+git pull origin master
+
 $profileDir = Split-Path -parent $profile
 $componentDir = Join-Path $profileDir "components"
 

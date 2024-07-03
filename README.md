@@ -20,8 +20,7 @@ postinst `.~/.deps`
 
 ### Windows
 
-
-`cd ~/ git clone https://github.com/largerock/dotfiles.git 
+`cd ~\ && git clone https://github.com/largerock/dotfiles.git && cd dotfiles && .\scripts\bootstrap-windows.bat`
 
 To create a similar Windows version that runs the PowerShell scriptss in the scripts folder, follow these steps:
 
