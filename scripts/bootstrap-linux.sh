@@ -12,6 +12,10 @@ install_if_not_installed() {
   fi
 }
 
+install_if_not_installed zsh
+install_if_not_installed stow
+install_if_not_installed git
+
 # Check if oh-my-zsh is installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh-my-zsh..."
@@ -28,11 +32,7 @@ else
   echo "Starship is already installed"
 fi
 
-# Check if stow is installed & install if not
-install_if_not_installed stow
 
-# Ensure Git is installed (since it's used in the script)
-install_if_not_installed git
 
 #!/usr/bin/env bash
 cd "$(dirname "${BASH_SOURCE[0]}")"
