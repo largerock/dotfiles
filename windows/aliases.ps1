@@ -12,6 +12,8 @@ ${function:dt} = { Set-Location ~\Desktop }
 ${function:docs} = { Set-Location ~\Documents }
 ${function:dl} = { Set-Location ~\Downloads }
 ${function:cod} = { Set-Location ~\code }
+${function:temp} = { Set-Location $env:TEMP }
+${function:exp} = { Invoke-Expression "explorer $args" }
 
 # Missing Bash aliases
 Set-Alias time Measure-Command

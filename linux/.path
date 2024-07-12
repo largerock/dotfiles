@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Add ~/.local/bin to PATH
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+
+# CoreUtils
+if [[ -d "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin${PATH+:$PATH}"
+  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman${MANPATH+:$MANPATH}"
+fi
+
+# Add Mono to PATH if installed
+if [[ -d "/usr/bin/mono" ]]; then
+  export PATH="/usr/bin/mono${PATH+:$PATH}"
+fi
+
+# Add Composer global bin to PATH if installed
+if [[ -d "$HOME/.config/composer/vendor/bin" ]]; then
+  export PATH="$HOME/.config/composer/vendor/bin${PATH+:$PATH}"
+fi

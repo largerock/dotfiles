@@ -60,7 +60,3 @@ function Set-Environment([String] $variable, [String] $value) {
     #[System.Environment]::SetEnvironmentVariable("$variable", "$value","User")
     Invoke-Expression "`$env:${variable} = `"$value`""
 }
-
-function exp() {
-    Invoke-Expression "explorer $args"
-}
