@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# elevate privileges
-if [ "$EUID" -ne 0 ]; then
-  sudo -k
-  pass=$(zenity --password --title="Provide your password")
-    echo $pass | sudo -Sv
-    if [ $? -eq 0 ]; then
-      echo "Correct Password"
-    else
-      echo "Incorrect Password"
-      exit 1
-    fi
-fi
 
 # Function to install a package if it is not already installed
 install_if_not_installed() {
@@ -55,9 +43,18 @@ echo $PWD
 git pull origin master
 
 function doIt() {
+  # check if the .zshrc file exists
+  if [ -f ~/.zshrc ]; then
+    mv ~/.zshrc ~/.zshrc.bak
+    rm -f ~/.zshrc
+  fi
+
+  chsh -s $(which zsh)
   stow -t ~ linux
   stow -t ~ starship
-  source ~/.zshrc
+  
+  echo "Done, start a new terminal session to see the changes"
+  echo "or: source ~/.zshrc"
 }
 
 if [ "$1" = '--force' -o "$1" = '-f' ]; then
