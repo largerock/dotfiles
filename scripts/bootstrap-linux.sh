@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
+# elevate privileges
+if [ "$EUID" -ne 0 ]; then
+  sudo -k
+  pass=$(zenity --password --title="Provide your password")
+    echo $pass | sudo -Sv
+    if [ $? -eq 0 ]; then
+      echo "Correct Password"
+    else
+      echo "Incorrect Password"
+      exit 1
+    fi
+fi
+
 # Function to install a package if it is not already installed
 install_if_not_installed() {
   if ! dpkg -s "$1" >/dev/null 2>&1; then
@@ -42,7 +55,7 @@ echo $PWD
 git pull origin master
 
 function doIt() {
-  stow -t ~ darwin
+  stow -t ~ linux
   stow -t ~ starship
   source ~/.zshrc
 }
