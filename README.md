@@ -34,6 +34,13 @@ cd ~\ && git clone https://github.com/largerock/dotfiles.git && cd dotfiles && .
 
 # post install deps (will run deps.ps1 inside of the $profile dir)
 & (Join-Path (Split-Path -Parent $PROFILE) "deps.ps1")
+
+# Post install to set SSH to use Powershell instead of CMD (requires PWSH 7 installed in deps)
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" `
+∙                  -Name DefaultShell `
+∙                  -Value "C:\Program Files\PowerShell\7\pwsh.exe" `
+∙                  -PropertyType String `
+∙                  -Force
 ```
 
 adding windows keys:
