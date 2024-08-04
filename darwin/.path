@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
+# add /Users/george/.yarn/bin to the PATH for node, make george dynamic
+
+# get the current user dir
+USER_DIR=$(eval echo ~$(whoami))
+# set the yarn bin path
+YARN_BIN_PATH="$USER_DIR/.yarn/bin"
+# set the composer bin path
+
+# add the yarn bin path to the PATH
+export PATH="$YARN_BIN_PATH:$PATH"
 
 export PATH="$HOME/bin:$PATH"
 
