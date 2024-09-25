@@ -1,6 +1,8 @@
 # prettyFunctional terminals
 *Goal:* make any terminal on any system feel nice and familiar
 
+inspo: https://github.com/jayharris/dotfiles-windows
+
 Install the Agave Nerd Font from https://www.nerdfonts.com/font-downloads. Set`Agave Nerd Font` font for the following applications:
 - Visual Studio Code (terminal font: `terminal.integrated.fontFamily`)
 - PowerShell (admin)
