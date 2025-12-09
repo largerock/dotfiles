@@ -18,10 +18,10 @@ Install the Agave Nerd Font from https://www.nerdfonts.com/font-downloads. Set`A
 
 ```bash
 # install the files
-> git clone https://github.com/largerock/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./scripts/bootstrap-darwin.sh
+git clone https://github.com/largerock/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./scripts/bootstrap-darwin.sh
 
 # post installation dependencies
-> .~/.deps
+.~/.deps
 ```
 postinst `.~/.deps`
 
